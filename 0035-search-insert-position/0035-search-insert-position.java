@@ -6,7 +6,7 @@ class Solution {
    while(s<e){
          int mid= s+ (e-s)/2; 
        if(nums[mid] > target) {
-                e = mid;
+                e = mid; // left // check this line 
             } else if(nums[mid] < target) {
                 s = mid + 1;
             } else {
