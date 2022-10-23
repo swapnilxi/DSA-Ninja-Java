@@ -13,6 +13,7 @@ public int[] twoSum(int[] numbers, int target) {
                 left++;
             }
         }
-        return null;
+        //return null;
+    return new int[] {-1,-1};
     }
 }
