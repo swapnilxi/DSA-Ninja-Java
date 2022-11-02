@@ -11,7 +11,7 @@ class Solution {
         if (target == nums[mid]) {
             return mid;
         } else if (target < nums[mid]) {
-            return searchFunc(nums, low, mid - 1, target);
+            return searchFunc(nums, 0, mid - 1, target);
         } else {
             return searchFunc(nums, mid + 1, high, target);
         }
