@@ -61,7 +61,6 @@ class Solution
         }
         for(int a=1; a*a<=n; ++a){
         int temp= a*a;
-      
          ans=Math.min(ans,1+solveMem(n-temp, dp)); 
   
         }
@@ -69,12 +68,27 @@ class Solution
         return dp[n];   
         
     }
+    int solveTab(int n){
+        int[]dp= new int[n+1];
+        Arrays.fill(dp,Integer.MAX_VALUE);
+        dp[0]=0;
+        for(int i=1; i<=n; i++){
+            for(int a=1; a*a<=n; ++a){
+                int temp= a*a;
+                if(i-temp>=0){
+                dp[i]=Math.min(dp[i],1+dp[i-temp]);
+                }
+            }    
+        }
+        
+        return dp[n];
+    }
     
     public int MinSquares(int n)
     {
         // Code here
-        int[] dp=new int[n+1];
-        Arrays.fill(dp,-1);
-       return solveMem(n,dp);
+        // int[] dp=new int[n+1];
+        // Arrays.fill(dp,-1);
+       return solveTab(n);
     }
 }
