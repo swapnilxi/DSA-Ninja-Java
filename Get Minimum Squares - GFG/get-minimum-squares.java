@@ -48,7 +48,9 @@ class Solution
     }
     int solveMem(int n, int[] dp){
         int ans=n;
-        
+         if(n<0){
+            return 0;
+        }
         //base case
         if(n==0){
             return 0;
@@ -59,9 +61,9 @@ class Solution
         }
         for(int a=1; a*a<=n; ++a){
         int temp= a*a;
-       
+      
          ans=Math.min(ans,1+solveMem(n-temp, dp)); 
-    
+  
         }
         dp[n]=ans;
         return dp[n];   
